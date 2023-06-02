@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+   <title>BDLS</title>
+   <script src="https://kit.fontawesome.com/53eac427de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <style>
+      #login{
+        background-color: #2C4964;
+        width: 190px;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  /* #c9c9b6; */
+}
+body {
+  background: whitesmoke;
+  overflow-y: scroll;
+}
+::selection {
+  background: rgba(26, 188, 156, 0.3);
+}
+.container {
+  max-width: 600px;
+  padding: 0 20px;
+  margin: 100px auto;
+  /* position: relative;
+  top: -209px; */
+  
+}
+.wrapper {
+  width: 100%;
+  background: whitesmoke;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+.wrapper .title {
+  color: #323b8b;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.wrapper form {
+  padding: 30px 40px 40px 40px;
+  background-color:  #F1F7FD; 
+}
+.wrapper form .row {
+  height: 50px;
+  margin-bottom: 15px;
+  position: relative;
+  
+}
+.wrapper form .row input {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid rgba(50, 59, 139, 0.5);
+  font-size: 16px;
+  transition: all 3.s ease;
+}
+/* form .row input:focus {
+  border-color: #16a085;
+  box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25);
+} */
+
+form .row input:focus {
+  border-bottom: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+form .row input::placeholder {
+  color: #999;
+}
+.wrapper form .row i {
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #3a557d;
+  border: 1px solid #3a557d;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .button input {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #848475;
+  /* border: 1px solid #3a557d; */
+  cursor: pointer;
+  margin-top: 20px;
+  width: 30%;
+  float: center;
+  /* #66665c */
+}
+form .button input:hover {
+  background: #66665c;
+}
+
+label {
+  display: block;
+  /* margin-bottom: 15px; */
+  margin-top: 10px;
+}
+
+#clickable {
+  display: inline-block;
+  margin-top: 10px;
+  color: #323b8b;
+}
+
+select{
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+    border: none;
+    border-bottom: 1px
+ solid rgba(50, 59, 139, 0.5);
+    font-size: 16px;
+    transition: all 3.s ease;
+}
+
+.left-container{
+         border: 1px solid black;
+         position: relative;
+         top: 0px;
+         width: 240px;
+         height:110px;
+         overflow-y: scroll;
+         
+       }
+
+
+    </style>
+  </head>
+
+  <body>
+   
+    
+      
+  
+        <div class="container">
+          <div class="wrapper">
+          
+            <form action="/collect_sample" id="paymentForm" autocomplete="" method="POST">
+              <div class="title">INSERT RESULT DETAILS</div>
+          <br /> 
+          <div class="row">
+            <!-- <%rows.forEach(function(row){%> -->
+            <label for=""> ID NUMBER</label>
+            <input type="text" name="sample_id" id="lastname" placeholder="Enter Sample Number" value="<%= typeof row.sample_id != 'undefined' ? row.sample_id  : '' %>" required />
+          </div>
+          <br />
+          <!-- <% })%> -->
+          <br />
+         
+          <br />
+          <div class="row">
+            <!-- <label for="Country">SELECT STATUS</label> -->
+            <select id="test" name="status" required>
+              <option disabled selected value="">Select STATUS..</option>
+              <option value="Negative">NEGATIVE</option>
+                <option value="Positive">POSITIVE</option>
+            </select>
+          </div>
+          <br />
+
+          <br />
+          <div class="row">
+            <label for="">TEST INFORMATION</label>
+            <textarea name="test_description" id="test_info" cols="5" rows="3.5" value="<%= typeof test_info != 'undefined' ? test_info  : '' %>"></textarea>
+          </div>
+          <br />
+          <div class="row button">
+          <input name="login" id="login" class="btn btn-primary btn-block" type="submit" value="Submit">
+          <br />
+        </div>
+        </form>
+           <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</body>
+</html>
+  
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+           
+
+
+
+
+
+
+
+
+
+
+
+
+

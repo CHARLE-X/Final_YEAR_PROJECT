@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BUDLS</title>
+    <link rel="stylesheet" href="assets/css/form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <style>
+      #login{
+        background-color: #2C4964;
+        width: 190px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+      
+        <form action="/users/doc_reg" id="paymentForm" autocomplete="" method="POST">
+          <div class="title">Doctor Registration Form</div>
+          <%- include ('partials/messages') %>
+
+          <br />
+          
+          <div class="row">
+            <label for=""> Full Name</label>
+            <input type="text" name="fullname" id="lastname" placeholder="" value="<%= typeof name != 'undefined' ? name : '' %>" required />
+          </div>
+          <br />
+
+          <br />
+          <div class="row">
+            <label for="">Email</label>
+            <input type="email" name="email" id="email" placeholder="" value="<%= typeof email != 'undefined' ? email : '' %>" required />
+          </div>
+          <br />
+
+          <div class="row">
+            <label for="">Password</label>
+            <input type="password" name="password" id="email" placeholder="" value="<%= typeof password != 'undefined' ? password : '' %>" required />
+          </div>
+          <br />
+
+          <div class="row">
+            <label for="">Confirm Password</label>
+            <input type="password" name="password2" id="email" placeholder="" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required />
+          </div>
+          <br />
+          <div class="row button">
+          <input name="login" id="login" class="btn btn-primary btn-block" type="submit" value="Register">
+          <br />
+        </div>
+        </form>
+            </body>
+</html>
